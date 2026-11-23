@@ -203,6 +203,8 @@ public sealed class ParticleEffect : MonoBehaviour
         _material.SetFloat(ShaderIDs.SourceTint, p.SourceTint);
         _material.SetFloat(ShaderIDs.SourceLuminance, p.SourceLuminance);
         _material.SetFloat(ShaderIDs.SourceAdd, p.SourceAdd);
+        _material.SetVector(ShaderIDs.LightHue, LightHue());
+        _material.SetFloat(ShaderIDs.LightTint, p.LightTint);
         _material.SetFloat(ShaderIDs.Intensity, p.Intensity);
         _material.SetFloat(ShaderIDs.IntensityRandomness, p.IntensityRandomness);
         _material.SetFloat(ShaderIDs.Twinkle, p.Twinkle);
@@ -237,6 +239,18 @@ public sealed class ParticleEffect : MonoBehaviour
             layer = gameObject.layer
         };
         Graphics.RenderPrimitives(rparams, MeshTopology.Triangles, _capacity * 6);
+    }
+
+    // The silhouette's light color scaled to unit luminance, so that tinting
+    // shifts the particles' hue without dimming them. Read every frame, it
+    // follows the rim light as it glides between presets, and the particles
+    // of a fading preset take on the new light along with the silhouette.
+    Vector4 LightHue()
+    {
+        if (Source == null) return Vector4.one;
+        var c = Source.Color.linear;
+        var luma = 0.2126f * c.r + 0.7152f * c.g + 0.0722f * c.b;
+        return (Vector4)c / Mathf.Max(luma, 1e-4f);
     }
 
     // Rebaked every frame so that edits to the profile show up live. It is
@@ -281,6 +295,8 @@ public sealed class ParticleEffect : MonoBehaviour
         public static readonly int SourceTint = Shader.PropertyToID("_SourceTint");
         public static readonly int SourceLuminance = Shader.PropertyToID("_SourceLuminance");
         public static readonly int SourceAdd = Shader.PropertyToID("_SourceAdd");
+        public static readonly int LightHue = Shader.PropertyToID("_LightHue");
+        public static readonly int LightTint = Shader.PropertyToID("_LightTint");
         public static readonly int EmissionMap = Shader.PropertyToID("_EmissionMap");
         public static readonly int ColorMap = Shader.PropertyToID("_ColorMap");
         public static readonly int DeltaTime = Shader.PropertyToID("_DeltaTime");

@@ -99,6 +99,12 @@ public sealed class ParticleProfile : ScriptableObject
     [field:SerializeField, Min(0)]
     public float SourceAdd { get; set; } = 0;
 
+    // Multiplies by the hue of the silhouette's rim light, as if the
+    // particles caught the same light. The hue is scaled to unit luminance,
+    // so brightness stays and white particles take the light's color outright.
+    [field:SerializeField, Range(0, 1)]
+    public float LightTint { get; set; } = 1;
+
     // Multiplies the base color over the normalized age. Alpha scales
     // brightness, so it doubles as the fade-in/out envelope.
     [field:SerializeField, GradientUsage(true)]

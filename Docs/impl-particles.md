@@ -22,6 +22,7 @@ All under `Assets/Sturm/Runtime/Particles/`.
 | Two-potential curl noise; amplitude units | `Noise.hlsl` `DivergenceFreeNoise` |
 | Energy-conserving depth of field; strays as lights | `ParticleRender.shader` `Vert` (point mode) |
 | No depth of field for polygons | `ParticleRender.shader` `Vert` (shape mode) |
+| Rim light hue on particles, luminance-normalized, live during glides | `ParticleEffect.LightHue`, `ParticleRender.shader` `ParticleColor` |
 | Sparkle instead of a global gain | `ParticleRender.shader` `Sparkle` |
 | Even polygon strokes | `ParticleRender.shader` `Frag` (shape mode) |
 | Culling dead particles in the vertex stage | `ParticleRender.shader` `Vert` |

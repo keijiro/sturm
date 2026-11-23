@@ -19,6 +19,8 @@ float3 _BaseColor;
 float _SourceTint;
 float _SourceLuminance;
 float _SourceAdd;
+float3 _LightHue;
+float _LightTint;
 float _Intensity;
 float _IntensityRandomness;
 float _Twinkle;
@@ -58,6 +60,8 @@ static const float RayLevel = 0.5;
 
 // The three source color weights are described on ParticleProfile. Added
 // light skips the gradient's color but not its alpha, which is the fade.
+// The rim light's hue tints everything, added light included: the particles
+// are seen by the light that lights the silhouette.
 float3 ParticleColor(Particle p)
 {
     float t = saturate(p.age / p.life);
@@ -70,6 +74,7 @@ float3 ParticleColor(Particle p)
     float3 tint = lerp(1, source, _SourceTint);
     float level = lerp(1, luma, _SourceLuminance);
     float3 color = _BaseColor * grad.rgb * tint * level + source * _SourceAdd;
+    color *= lerp(1, _LightHue, _LightTint);
 
     float bright = 1 - _IntensityRandomness * SubRandom(p.random, 1);
     float phase = SubRandom(p.random, 2) * 6.28318530718;

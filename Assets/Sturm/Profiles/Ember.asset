@@ -31,6 +31,7 @@ MonoBehaviour:
   <SourceTint>k__BackingField: 0
   <SourceLuminance>k__BackingField: 0.5
   <SourceAdd>k__BackingField: 0
+  <LightTint>k__BackingField: 0
   <ColorOverLife>k__BackingField:
     serializedVersion: 2
     key0: {r: 1, g: 0.95, b: 0.7, a: 0}

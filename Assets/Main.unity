@@ -246,6 +246,10 @@ PanelRenderer:
   m_PivotReferenceSize: 0
   m_Pivot: 0
   m_Position: 0
+  m_GenerateAccessibilityHierarchy: 1
+  m_TrackScreenSpacePosition: 0
+  m_ScreenSpaceOffsetX: 0
+  m_ScreenSpaceOffsetY: 0
 --- !u!114 &231048559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +315,8 @@ MonoBehaviour:
   <GlowIntensity>k__BackingField: 0.02
   <GlowWidth>k__BackingField: 2
   <Brightness>k__BackingField: 1.5
-  <BodyColor>k__BackingField: 0
+  <BodyColor>k__BackingField: 0.5
+  <BodyLightWidth>k__BackingField: 3
   <EdgeFade>k__BackingField: 0.5
   _filterShader: {fileID: 4800000, guid: d8d732de428a445dfbfb120d655b8d22, type: 3}
   _displayShader: {fileID: 4800000, guid: 50e533f36ad91472eb045893166031d6, type: 3}
@@ -397,6 +402,9 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 7a67c721c93dc43f69972b9cb7b651bc, type: 2}
+  m_SceneObjectReference:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
 --- !u!4 &893397086
 Transform:
   m_ObjectHideFlags: 0
@@ -652,10 +660,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Sturm.Runtime::Sturm.CameraDrift
   <Target>k__BackingField: {fileID: 394437327}
-  <Distance>k__BackingField: 2.2
-  <Swing>k__BackingField: {x: 14, y: 6}
-  <Roll>k__BackingField: 1.5
-  <DistanceSwing>k__BackingField: 0.08
+  <Distance>k__BackingField: 1.6
+  <Swing>k__BackingField: {x: 30, y: 30}
+  <Roll>k__BackingField: 10
+  <DistanceSwing>k__BackingField: 0.3
   <Frequency>k__BackingField: 0.04
   <Seed>k__BackingField: 1
 --- !u!1 &1471347997
@@ -1174,7 +1182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Sturm.Runtime::Sturm.ParticleEffect
   <Profile>k__BackingField: {fileID: 11400000, guid: aec6f6c0f3de54c38a1856dc0c836a1a, type: 2}
   <Source>k__BackingField: {fileID: 394437328}
-  <Emitting>k__BackingField: 0
+  <Emitting>k__BackingField: 1
   _compute: {fileID: 7200000, guid: a988121fca76841d5952cb8b4979b909, type: 3}
   _shader: {fileID: 4800000, guid: 0de6db1e05dbd4c1d821baef5f4768af, type: 3}
 --- !u!1 &2091305048
