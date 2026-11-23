@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="../Sturm/UI/Main.uss" />
+    <ui:VisualElement name="root" class="screen" picking-mode="Ignore">
+        <ui:VisualElement name="controls" class="controls">
+            <ui:VisualElement class="dropdown-control source-control">
+                <ui:DropdownField name="sourceDropdown" class="dropdown" />
+                <ui:Label text="▾" picking-mode="Ignore" class="dropdown-icon" />
+            </ui:VisualElement>
+            <ui:VisualElement class="dropdown-control effect-control">
+                <ui:DropdownField name="effectDropdown" class="dropdown" />
+                <ui:Label text="▾" picking-mode="Ignore" class="dropdown-icon" />
+            </ui:VisualElement>
+            <ui:Label name="statusLabel" class="status" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

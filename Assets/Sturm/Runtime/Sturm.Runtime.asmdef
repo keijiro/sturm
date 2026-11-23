@@ -1,0 +1,9 @@
+{
+  "name": "Sturm.Runtime",
+  "rootNamespace": "Sturm",
+  "references": [
+    "Rvm.CoreML.Runtime",
+    "Unity.InputSystem",
+    "Unity.Mathematics"
+  ]
+}
