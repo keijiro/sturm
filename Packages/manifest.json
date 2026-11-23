@@ -1,11 +1,14 @@
 {
   "dependencies": {
-    "com.unity.inputsystem": "1.20.1",
+    "com.unity.inputsystem": "6.7.0",
     "com.unity.mathematics": "1.4.0",
     "com.unity.pipeline": "1.0.1",
-    "com.unity.render-pipelines.universal": "17.6.0",
+    "com.unity.render-pipelines.universal": "17.7.0",
     "jp.keijiro.klutter-tools": "2.6.0",
-    "jp.keijiro.rvm-coreml": "1.0.0",
+    "jp.keijiro.rvm-coreml": "1.0.1",
+    "com.unity.modules.localizationruntime": "1.0.0",
+    "com.unity.modules.smartstrings": "1.0.0",
+    "com.unity.modules.spritemask": "1.0.0",
     "com.unity.modules.uielements": "1.0.0",
     "com.unity.modules.video": "1.0.0"
   },
